@@ -1,7 +1,7 @@
 Summary:	Hardware identification and configuration data
 Summary(pl):	Dane do identyfikacji i konfiguracji sprzêtu
 Name:		hwdata
-Version:	0.61
+Version:	0.62
 Release:	1
 License:	GPL/XFree86
 Group:		Applications/System
