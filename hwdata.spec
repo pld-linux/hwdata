@@ -6,6 +6,7 @@ Release:	1
 License:	GPL/XFree86
 Group:		Applications/System
 Source0:	%{name}-%{version}.tar.gz
+# Source0-md5:	553996e4ef0eed62cacdb531da86f52e
 BuildArch:	noarch
 #Requires:	XFree86-Xserver
 Conflicts:	Xconfigurator < 4.9.42-1
