@@ -7,6 +7,7 @@ License:	GPL/XFree86
 Group:		Applications/System
 Source0:	%{name}-%{version}.tar.gz
 BuildArch:	noarch
+#Requires:	XFree86-Xserver
 Conflicts:	Xconfigurator < 4.9.42-1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -35,4 +36,3 @@ rm -rf $RPM_BUILD_ROOT
 %doc LICENSE COPYING
 %dir %{_datadir}/hwdata
 %config %{_datadir}/hwdata/*
-%{_prefix}/X11R6/lib/X11/Cards
