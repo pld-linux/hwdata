@@ -1,12 +1,12 @@
 Summary:	Hardware identification and configuration data
 Summary(pl):	Dane do identyfikacji i konfiguracji sprzêtu
 Name:		hwdata
-Version:	0.62
+Version:	0.87
 Release:	1
 License:	GPL/XFree86
 Group:		Applications/System
 Source0:	%{name}-%{version}.tar.gz
-# Source0-md5:	553996e4ef0eed62cacdb531da86f52e
+# Source0-md5:	95ec818f2cd037aed7a725f2263dc6ad
 BuildArch:	noarch
 #Requires:	XFree86-Xserver
 Conflicts:	Xconfigurator < 4.9.42-1
