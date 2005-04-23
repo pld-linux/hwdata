@@ -1,12 +1,12 @@
 Summary:	Hardware identification and configuration data
 Summary(pl):	Dane do identyfikacji i konfiguracji sprzêtu
 Name:		hwdata
-Version:	0.87
-Release:	2
+Version:	0.156
+Release:	1
 License:	GPL/XFree86
 Group:		Applications/System
 Source0:	%{name}-%{version}.tar.gz
-# Source0-md5:	95ec818f2cd037aed7a725f2263dc6ad
+# Source0-md5:	28f8e4d0a2f230346de86ca46f30760e
 BuildArch:	noarch
 #Requires:	XFree86-Xserver
 Conflicts:	Xconfigurator < 4.9.42-1
@@ -36,4 +36,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc LICENSE COPYING
 %dir %{_datadir}/hwdata
+%dir /etc/pcmcia
+%config(noreplace) /etc/hotplug/blacklist
+%config /etc/pcmcia/config
 %config %{_datadir}/hwdata/*
