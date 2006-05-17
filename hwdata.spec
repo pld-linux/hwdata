@@ -1,14 +1,14 @@
-# TODO: use system {usb,pci}.ids (or symlink them)?
 Summary:	Hardware identification and configuration data
 Summary(pl):	Dane do identyfikacji i konfiguracji sprzêtu
 Name:		hwdata
-Version:	0.169
+Version:	0.177
 Release:	1
 License:	GPL/XFree86
 Group:		Applications/System
 Source0:	%{name}-%{version}.tar.gz
-# Source0-md5:	98838e0f541b362cb3bd129984ba0c2a
+# Source0-md5:	daa4c324ec57a56ff802fe01010bf849
 Requires:	pciutils
+Requires:	usbutils
 Conflicts:	Xconfigurator < 4.9.42-1
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -29,12 +29,12 @@ dla XFree86.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-rm -f pci.ids
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-ln -s /etc/pci.ids $RPM_BUILD_ROOT%{_datadir}/hwdata/pci.ids
+ln -sf /etc/pci.ids $RPM_BUILD_ROOT%{_datadir}/hwdata/pci.ids
+ln -sf /etc/usb.ids $RPM_BUILD_ROOT%{_datadir}/hwdata/usb.ids
+rm -f $RPM_BUILD_ROOT/etc/modprobe.d/blacklist
 
 %clean
 rm -rf $RPM_BUILD_ROOT
