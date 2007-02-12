@@ -1,5 +1,5 @@
 Summary:	Hardware identification and configuration data
-Summary(pl):	Dane do identyfikacji i konfiguracji sprzêtu
+Summary(pl.UTF-8):   Dane do identyfikacji i konfiguracji sprzÄ™tu
 Name:		hwdata
 Version:	0.177
 Release:	1
@@ -18,9 +18,9 @@ hwdata contains various hardware identification and configuration
 data, such as the pci.ids database, the XFree86 Cards and MonitorsDB
 databases.
 
-%description -l pl
-Pakiet hwdata zawiera ró¿ne dane do identyfikacji i konfiguracji
-sprzêtu, takie jak baza danych pci.ids oraz bazy Cards i MonitorsDB
+%description -l pl.UTF-8
+Pakiet hwdata zawiera rÃ³Å¼ne dane do identyfikacji i konfiguracji
+sprzÄ™tu, takie jak baza danych pci.ids oraz bazy Cards i MonitorsDB
 dla XFree86.
 
 %prep
