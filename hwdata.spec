@@ -1,5 +1,5 @@
 Summary:	Hardware identification and configuration data
-Summary(pl.UTF-8):   Dane do identyfikacji i konfiguracji sprzętu
+Summary(pl.UTF-8):	Dane do identyfikacji i konfiguracji sprzętu
 Name:		hwdata
 Version:	0.177
 Release:	1
