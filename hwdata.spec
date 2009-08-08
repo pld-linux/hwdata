@@ -1,12 +1,15 @@
+%define	snap	20090808
 Summary:	Hardware identification and configuration data
 Summary(pl.UTF-8):	Dane do identyfikacji i konfiguracji sprzętu
 Name:		hwdata
-Version:	0.177
-Release:	2
+# see hwdata.spec inside of tarball
+Version:	0.225
+Release:	0.%{snap}.1
 License:	GPL/XFree86
 Group:		Applications/System
-Source0:	%{name}-%{version}.tar.gz
-# Source0-md5:	daa4c324ec57a56ff802fe01010bf849
+# git clone git://git.fedorahosted.org/git/hwdata.git
+Source0:	%{name}-%{snap}.tar.bz2
+# Source0-md5:	e38fc6902b82be61b845da5516317f40
 Requires:	pciutils
 Requires:	usbutils
 Conflicts:	Xconfigurator < 4.9.42-1
@@ -24,7 +27,7 @@ sprzętu, takie jak baza danych pci.ids oraz bazy Cards i MonitorsDB
 dla XFree86.
 
 %prep
-%setup -q
+%setup -q -n %{name}
 
 %install
 rm -rf $RPM_BUILD_ROOT
