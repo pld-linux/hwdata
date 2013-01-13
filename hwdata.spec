@@ -1,5 +1,4 @@
 # TODO
-# - sync -pl
 # - make this primary db of pci/usb/oui/pnp/blacklist db (merge usbutils, pciutils, ieee-oui, pnputils, kmod/module-init-tools) ?
 # - merge (switch?) with http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/sys-apps/hwids ?
 #   their db contains Hardware (PCI, USB, OUI, IAB) IDs databases: https://github.com/gentoo/hwids
@@ -25,8 +24,7 @@ data, such as pci.ids, usb.ids, oui.txt and pnp.ids databases.
 
 %description -l pl.UTF-8
 Pakiet hwdata zawiera różne dane do identyfikacji i konfiguracji
-sprzętu, takie jak baza danych pci.ids oraz bazy Cards i MonitorsDB
-dla XFree86.
+sprzętu, takie jak bazy danych pci.ids, usb.ids, oui.txt i pnp.ids.
 
 %prep
 %setup -q
