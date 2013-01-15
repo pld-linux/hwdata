@@ -7,14 +7,15 @@ Summary(pl.UTF-8):	Dane do identyfikacji i konfiguracji sprzętu
 Name:		hwdata
 # see hwdata.spec inside of tarball
 Version:	0.241
-Release:	0.1
+Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://fedorahosted.org/releases/h/w/hwdata/%{name}-%{version}.tar.bz2
 # Source0-md5:	32dd541d778cfe0dd6100f88433bbc90
+Requires:	ieee-oui
 Requires:	pciutils
-Requires:	usbutils
 Requires:	pnputils
+Requires:	usbutils
 Conflicts:	Xconfigurator < 4.9.42-1
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -38,9 +39,10 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-ln -sf /etc/pci.ids $RPM_BUILD_ROOT%{_datadir}/hwdata/pci.ids
-ln -sf /etc/usb.ids $RPM_BUILD_ROOT%{_datadir}/hwdata/usb.ids
-ln -sf /usr/share/misc/pnp.ids $RPM_BUILD_ROOT%{_datadir}/hwdata/pnp.ids
+ln -sf %{_sysconfdir}/pci.ids $RPM_BUILD_ROOT%{_datadir}/hwdata/pci.ids
+ln -sf %{_sysconfdir}/usb.ids $RPM_BUILD_ROOT%{_datadir}/hwdata/usb.ids
+ln -sf %{_datadir}/misc/pnp.ids $RPM_BUILD_ROOT%{_datadir}/hwdata/pnp.ids
+ln -sf %{_datadir}/oui.txt $RPM_BUILD_ROOT%{_datadir}/hwdata/oui.txt
 %{__rm} $RPM_BUILD_ROOT/etc/modprobe.d/blacklist.conf
 
 %clean
