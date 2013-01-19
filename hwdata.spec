@@ -43,6 +43,8 @@ ln -sf %{_datadir}/misc/pnp.ids $RPM_BUILD_ROOT%{_datadir}/%{name}/pnp.ids
 ln -sf %{_datadir}/oui.txt $RPM_BUILD_ROOT%{_datadir}/%{name}/oui.txt
 %{__rm} $RPM_BUILD_ROOT/etc/modprobe.d/blacklist.conf
 
+gzip -9 $RPM_BUILD_ROOT%{_datadir}/%{name}/pci.ids
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -51,6 +53,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc ChangeLog LICENSE
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/oui.txt
-%{_datadir}/%{name}/pci.ids
+%{_datadir}/%{name}/pci.ids.gz
 %{_datadir}/%{name}/pnp.ids
 %{_datadir}/%{name}/usb.ids
