@@ -39,8 +39,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-ln -sf %{_datadir}/misc/pnp.ids $RPM_BUILD_ROOT%{_datadir}/hwdata/pnp.ids
-ln -sf %{_datadir}/oui.txt $RPM_BUILD_ROOT%{_datadir}/hwdata/oui.txt
+ln -sf %{_datadir}/misc/pnp.ids $RPM_BUILD_ROOT%{_datadir}/%{name}/pnp.ids
+ln -sf %{_datadir}/oui.txt $RPM_BUILD_ROOT%{_datadir}/%{name}/oui.txt
 %{__rm} $RPM_BUILD_ROOT/etc/modprobe.d/blacklist.conf
 
 %clean
@@ -49,4 +49,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog LICENSE
-%{_datadir}/hwdata
+%dir %{_datadir}/%{name}
+%{_datadir}/%{name}/oui.txt
+%{_datadir}/%{name}/pci.ids
+%{_datadir}/%{name}/pnp.ids
+%{_datadir}/%{name}/usb.ids
