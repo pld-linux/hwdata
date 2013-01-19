@@ -1,7 +1,7 @@
 # TODO
-# - make this primary db of pci/usb/oui/pnp/blacklist db (merge usbutils, ieee-oui, pnputils, kmod/module-init-tools) ?
+# - make this primary db of oui/pnp/blacklist db (merge ieee-oui, pnputils, kmod/module-init-tools) ?
 # - merge (switch?) with http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/sys-apps/hwids ?
-#   their db contains Hardware (PCI, USB, OUI, IAB) IDs databases: https://github.com/gentoo/hwids
+#   their db contains also OUI, IAB IDs databases: https://github.com/gentoo/hwids
 Summary:	Hardware identification and configuration data
 Summary(pl.UTF-8):	Dane do identyfikacji i konfiguracji sprzętu
 Name:		hwdata
@@ -14,9 +14,9 @@ Source0:	https://fedorahosted.org/releases/h/w/hwdata/%{name}-%{version}.tar.bz2
 # Source0-md5:	98615d098bafb7bad1ae5912c073edc7
 Requires:	ieee-oui
 Requires:	pnputils
-Requires:	usbutils
 Conflicts:	Xconfigurator < 4.9.42-1
 Conflicts:	pciutils < 3.1.10-3
+Conflicts:	usbutils < 006-2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -39,7 +39,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-ln -sf %{_sysconfdir}/usb.ids $RPM_BUILD_ROOT%{_datadir}/hwdata/usb.ids
 ln -sf %{_datadir}/misc/pnp.ids $RPM_BUILD_ROOT%{_datadir}/hwdata/pnp.ids
 ln -sf %{_datadir}/oui.txt $RPM_BUILD_ROOT%{_datadir}/hwdata/oui.txt
 %{__rm} $RPM_BUILD_ROOT/etc/modprobe.d/blacklist.conf
