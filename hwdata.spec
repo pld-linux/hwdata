@@ -7,7 +7,7 @@ Summary(pl.UTF-8):	Dane do identyfikacji i konfiguracji sprzętu
 Name:		hwdata
 # see hwdata.spec inside of tarball
 Version:	0.243
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://fedorahosted.org/releases/h/w/hwdata/%{name}-%{version}.tar.bz2
@@ -15,10 +15,12 @@ Source0:	https://fedorahosted.org/releases/h/w/hwdata/%{name}-%{version}.tar.bz2
 Requires:	ieee-oui
 Requires:	pnputils
 Conflicts:	Xconfigurator < 4.9.42-1
-Conflicts:	pciutils < 3.1.10-3
-Conflicts:	usbutils < 006-2
+Conflicts:	pciutils < 3.1.10-6
+Conflicts:	usbutils < 006-3
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_datadir	/lib
 
 %description
 hwdata contains various hardware identification and configuration
@@ -39,8 +41,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-ln -sf %{_datadir}/misc/pnp.ids $RPM_BUILD_ROOT%{_datadir}/%{name}/pnp.ids
-ln -sf %{_datadir}/oui.txt $RPM_BUILD_ROOT%{_datadir}/%{name}/oui.txt
+ln -sf /usr/share/misc/pnp.ids $RPM_BUILD_ROOT%{_datadir}/%{name}/pnp.ids
+ln -sf /usr/share/oui.txt $RPM_BUILD_ROOT%{_datadir}/%{name}/oui.txt
 %{__rm} $RPM_BUILD_ROOT/etc/modprobe.d/blacklist.conf
 
 gzip -9 $RPM_BUILD_ROOT%{_datadir}/%{name}/pci.ids
