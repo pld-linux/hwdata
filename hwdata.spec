@@ -7,7 +7,7 @@ Summary(pl.UTF-8):	Dane do identyfikacji i konfiguracji sprzętu
 Name:		hwdata
 # see hwdata.spec inside of tarball
 Version:	0.243
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://fedorahosted.org/releases/h/w/hwdata/%{name}-%{version}.tar.bz2
@@ -45,7 +45,8 @@ ln -sf /usr/share/misc/pnp.ids $RPM_BUILD_ROOT%{_datadir}/%{name}/pnp.ids
 ln -sf /usr/share/oui.txt $RPM_BUILD_ROOT%{_datadir}/%{name}/oui.txt
 %{__rm} $RPM_BUILD_ROOT/etc/modprobe.d/blacklist.conf
 
-gzip -9 $RPM_BUILD_ROOT%{_datadir}/%{name}/pci.ids
+gzip -n9 $RPM_BUILD_ROOT%{_datadir}/%{name}/pci.ids
+gzip -n9 $RPM_BUILD_ROOT%{_datadir}/%{name}/usb.ids
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -57,4 +58,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/oui.txt
 %{_datadir}/%{name}/pci.ids.gz
 %{_datadir}/%{name}/pnp.ids
-%{_datadir}/%{name}/usb.ids
+%{_datadir}/%{name}/usb.ids.gz
