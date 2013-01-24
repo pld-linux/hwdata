@@ -1,5 +1,5 @@
 # TODO
-# - make this primary db of oui/pnp/blacklist db (merge ieee-oui, pnputils, kmod/module-init-tools) ?
+# - make this primary db of oui/pnp/blacklist db (merge ieee-oui, kmod/module-init-tools) ?
 # - merge (switch?) with http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/sys-apps/hwids ?
 #   their db contains also OUI, IAB IDs databases: https://github.com/gentoo/hwids
 # - enable .gz if lshw has .gz support
@@ -8,13 +8,12 @@ Summary(pl.UTF-8):	Dane do identyfikacji i konfiguracji sprzętu
 Name:		hwdata
 # see hwdata.spec inside of tarball
 Version:	0.243
-Release:	5
+Release:	6
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://fedorahosted.org/releases/h/w/hwdata/%{name}-%{version}.tar.bz2
 # Source0-md5:	98615d098bafb7bad1ae5912c073edc7
 Requires:	ieee-oui
-Requires:	pnputils
 Conflicts:	Xconfigurator < 4.9.42-1
 Conflicts:	pciutils < 3.1.10-6
 Conflicts:	usbutils < 006-3
@@ -42,7 +41,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-ln -sf /usr/share/misc/pnp.ids $RPM_BUILD_ROOT%{_datadir}/%{name}/pnp.ids
 ln -sf /usr/share/oui.txt $RPM_BUILD_ROOT%{_datadir}/%{name}/oui.txt
 %{__rm} $RPM_BUILD_ROOT/etc/modprobe.d/blacklist.conf
 
