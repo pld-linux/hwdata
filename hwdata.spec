@@ -1,8 +1,11 @@
 # TODO
-# - make this primary db of oui/pnp/blacklist db (merge ieee-oui, kmod/module-init-tools) ?
+# - make this primary db of oui/blacklist db (merge ieee-oui, kmod/module-init-tools) ?
 # - merge (switch?) with http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/sys-apps/hwids ?
 #   their db contains also OUI, IAB IDs databases: https://github.com/gentoo/hwids
 # - enable .gz if lshw has .gz support
+# NOTE: pnp.ids in pnputils package differ from that in hwdata
+# (hwdata pnp.ids contain only vendor IDs, this pnp.ids contains only
+#  device IDs of (some) PNPACPI, PNPBIOS and ISAPNP devices)
 Summary:	Hardware identification and configuration data
 Summary(pl.UTF-8):	Dane do identyfikacji i konfiguracji sprzętu
 Name:		hwdata
@@ -24,7 +27,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 hwdata contains various hardware identification and configuration
-data, such as pci.ids, usb.ids, oui.txt and pnp.ids databases.
+data, such as pci.ids, usb.ids, oui.txt and pnp.ids (vendor IDs)
+databases.
 
 %description -l pl.UTF-8
 Pakiet hwdata zawiera różne dane do identyfikacji i konfiguracji
