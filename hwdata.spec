@@ -4,7 +4,7 @@
 #   their db contains also OUI, IAB IDs databases: https://github.com/gentoo/hwids
 # - enable .gz if lshw has .gz support
 # NOTE: pnp.ids in pnputils package differ from that in hwdata
-# (hwdata pnp.ids contain only vendor IDs, this pnp.ids contains only
+# (hwdata pnp.ids contain only vendor IDs, pnputils pnp.ids contains only
 #  device IDs of (some) PNPACPI, PNPBIOS and ISAPNP devices)
 Summary:	Hardware identification and configuration data
 Summary(pl.UTF-8):	Dane do identyfikacji i konfiguracji sprzętu
