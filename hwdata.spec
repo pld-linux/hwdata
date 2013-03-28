@@ -14,12 +14,12 @@ Summary:	Hardware identification and configuration data
 Summary(pl.UTF-8):	Dane do identyfikacji i konfiguracji sprzętu
 Name:		hwdata
 # see hwdata.spec inside of tarball
-Version:	0.245
-Release:	2
+Version:	0.247
+Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://fedorahosted.org/releases/h/w/hwdata/%{name}-%{version}.tar.bz2
-# Source0-md5:	2b505f104a1d5bf4f1291599c671f866
+# Source0-md5:	6190f7eba0ed78661ea963271f736aeb
 Obsoletes:	ieee-oui
 Conflicts:	Xconfigurator < 4.9.42-1
 Conflicts:	ntop < 4.1.0-2
@@ -29,6 +29,7 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_datadir	/lib
+%define		modprobe_d	/usr/lib/modprobe.d
 
 %description
 hwdata contains various hardware identification and configuration
@@ -50,7 +51,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__rm} $RPM_BUILD_ROOT/etc/modprobe.d/blacklist.conf
+%{__rm} $RPM_BUILD_ROOT%{modprobe_d}/dist-blacklist.conf
 
 %if 0
 gzip -n9 $RPM_BUILD_ROOT%{_datadir}/%{name}/pci.ids
