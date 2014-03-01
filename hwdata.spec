@@ -43,15 +43,13 @@ sprzętu, takie jak bazy danych pci.ids, usb.ids, oui.txt i pnp.ids.
 %prep
 %setup -q
 
-# broken makefile
-%{__sed} -i -e 's/#include Makefile.inc/include Makefile.inc/' Makefile
-
 %build
 %configure
 
 %install
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
+	libdir=%{_prefix}/lib \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{modprobe_d}/dist-blacklist.conf
