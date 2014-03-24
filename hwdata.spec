@@ -3,6 +3,7 @@
 # - merge (switch?) with http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/sys-apps/hwids ?
 #   their db contains also OUI, IAB IDs databases: https://github.com/gentoo/hwids
 # - enable .gz if lshw has .gz support
+# - package Individual Address Blocks file (iab.txt)?
 # NOTE: pnp.ids in pnputils package differ from that in hwdata
 # (hwdata pnp.ids contain only vendor IDs, pnputils pnp.ids contains only
 #  device IDs of (some) PNPACPI, PNPBIOS and ISAPNP devices)
@@ -14,12 +15,12 @@ Summary:	Hardware identification and configuration data
 Summary(pl.UTF-8):	Dane do identyfikacji i konfiguracji sprzętu
 Name:		hwdata
 # see hwdata.spec inside of tarball
-Version:	0.261
-Release:	2
+Version:	0.263
+Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://fedorahosted.org/releases/h/w/hwdata/%{name}-%{version}.tar.bz2
-# Source0-md5:	a922855c01d2e112e38deb2392a959c5
+# Source0-md5:	760371bf1fd65c7e2660c8f693a8bf5e
 Obsoletes:	ieee-oui
 Conflicts:	Xconfigurator < 4.9.42-1
 Conflicts:	ntop < 4.1.0-2
