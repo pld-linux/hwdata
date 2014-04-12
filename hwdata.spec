@@ -68,6 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog LICENSE
 %dir %{_datadir}/%{name}
+%{_datadir}/%{name}/iab.txt*
 %{_datadir}/%{name}/oui.txt*
 %{_datadir}/%{name}/pci.ids*
 %{_datadir}/%{name}/pnp.ids
