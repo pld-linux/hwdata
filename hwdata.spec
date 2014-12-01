@@ -21,6 +21,7 @@ License:	GPL v2+
 Group:		Applications/System
 Source0:	https://fedorahosted.org/releases/h/w/hwdata/%{name}-%{version}.tar.bz2
 # Source0-md5:	4511e5c106889f390f18cf33149b9d70
+URL:		https://fedorahosted.org/hwdata/
 Obsoletes:	ieee-oui
 Conflicts:	Xconfigurator < 4.9.42-1
 Conflicts:	ntop < 4.1.0-2
