@@ -15,12 +15,12 @@ Summary:	Hardware identification and configuration data
 Summary(pl.UTF-8):	Dane do identyfikacji i konfiguracji sprzętu
 Name:		hwdata
 # see hwdata.spec inside of tarball
-Version:	0.286
+Version:	0.289
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://fedorahosted.org/releases/h/w/hwdata/%{name}-%{version}.tar.bz2
-# Source0-md5:	a4ec81a011354f65050fec74547d8541
+# Source0-md5:	80fd5103c28369d4e5df9456ad14422b
 URL:		https://fedorahosted.org/hwdata/
 Obsoletes:	ieee-oui
 Conflicts:	Xconfigurator < 4.9.42-1
