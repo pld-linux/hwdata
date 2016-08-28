@@ -2,7 +2,7 @@
 # - make this primary db of blacklist db (merge kmod/module-init-tools) ?
 # - merge (switch?) with http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/sys-apps/hwids ?
 #   their db contains also OUI, IAB IDs databases: https://github.com/gentoo/hwids
-# - enable .gz if lshw has .gz support
+# - enable .gz if lshw and usbip have .gz support
 # - package Individual Address Blocks file (iab.txt)?
 # NOTE: pnp.ids in pnputils package differ from that in hwdata
 # (hwdata pnp.ids contain only vendor IDs, pnputils pnp.ids contains only
@@ -15,12 +15,12 @@ Summary:	Hardware identification and configuration data
 Summary(pl.UTF-8):	Dane do identyfikacji i konfiguracji sprzętu
 Name:		hwdata
 # see hwdata.spec inside of tarball
-Version:	0.289
+Version:	0.291
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://fedorahosted.org/releases/h/w/hwdata/%{name}-%{version}.tar.bz2
-# Source0-md5:	80fd5103c28369d4e5df9456ad14422b
+# Source0-md5:	effe59bf406eb03bb295bd34e0913dd8
 URL:		https://fedorahosted.org/hwdata/
 Obsoletes:	ieee-oui
 Conflicts:	Xconfigurator < 4.9.42-1
@@ -45,6 +45,11 @@ sprzętu, takie jak bazy danych pci.ids, usb.ids, oui.txt i pnp.ids.
 %prep
 %setup -q
 
+# if git-generated ChangeLog is missing in release, make one from included .spec
+if [ ! -f ChangeLog ]; then
+	%{__sed} -ne '/^%changelog/,$p' hwdata.spec | tail -n +2 > ChangeLog
+fi
+
 %build
 %configure
 
@@ -56,6 +61,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{modprobe_d}/dist-blacklist.conf
 
+# disabled: some applications don't support compressed formats
 %if 0
 gzip -n9 $RPM_BUILD_ROOT%{_datadir}/%{name}/pci.ids
 gzip -n9 $RPM_BUILD_ROOT%{_datadir}/%{name}/usb.ids
