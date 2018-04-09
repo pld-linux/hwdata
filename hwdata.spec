@@ -15,12 +15,12 @@ Summary:	Hardware identification and configuration data
 Summary(pl.UTF-8):	Dane do identyfikacji i konfiguracji sprzętu
 Name:		hwdata
 # see hwdata.spec inside of tarball
-Version:	0.302
+Version:	0.311
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://github.com/vcrhonek/hwdata/archive/v%{version}.tar.gz?/%{name}-%{version}.tar.gz
-# Source0-md5:	08ef0b8b34db59ca2b0022bc6b48ac8d
+# Source0-md5:	c7b9cee978b51a48923cd2b6bace9d07
 URL:		https://github.com/vcrhonek/hwdata
 Obsoletes:	ieee-oui
 Conflicts:	Xconfigurator < 4.9.42-1
