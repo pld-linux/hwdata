@@ -2,7 +2,7 @@
 # - make this primary db of blacklist db (merge kmod/module-init-tools) ?
 # - merge (switch?) with http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/sys-apps/hwids ?
 #   their db contains also OUI, IAB IDs databases: https://github.com/gentoo/hwids
-# - enable .gz if lshw and usbip have .gz support
+# - enable .gz if lshw, usbip, usbutils/lsusb.py have .gz support
 # - package Individual Address Blocks file (iab.txt)?
 # NOTE: pnp.ids in pnputils package differ from that in hwdata
 # (hwdata pnp.ids contain only vendor IDs, pnputils pnp.ids contains only
@@ -14,13 +14,13 @@
 Summary:	Hardware identification and configuration data
 Summary(pl.UTF-8):	Dane do identyfikacji i konfiguracji sprzętu
 Name:		hwdata
-# see hwdata.spec inside of tarball
-Version:	0.311
+Version:	0.312
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
-Source0:	https://github.com/vcrhonek/hwdata/archive/v%{version}.tar.gz?/%{name}-%{version}.tar.gz
-# Source0-md5:	c7b9cee978b51a48923cd2b6bace9d07
+#Source0Download: https://github.com/vcrhonek/hwdata/releases
+Source0:	https://github.com/vcrhonek/hwdata/archive/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	f32d056a626e92457b18434fa579c335
 URL:		https://github.com/vcrhonek/hwdata
 Obsoletes:	ieee-oui
 Conflicts:	Xconfigurator < 4.9.42-1
