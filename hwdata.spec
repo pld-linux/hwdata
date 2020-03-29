@@ -14,13 +14,13 @@
 Summary:	Hardware identification and configuration data
 Summary(pl.UTF-8):	Dane do identyfikacji i konfiguracji sprzętu
 Name:		hwdata
-Version:	0.323
+Version:	0.333
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
 #Source0Download: https://github.com/vcrhonek/hwdata/releases
 Source0:	https://github.com/vcrhonek/hwdata/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	18da6d33fb66c7fa83c6c03e5153f91d
+# Source0-md5:	b8901c56400f2b75a06e75722470d1eb
 URL:		https://github.com/vcrhonek/hwdata
 Obsoletes:	ieee-oui
 Conflicts:	Xconfigurator < 4.9.42-1
