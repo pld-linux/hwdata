@@ -14,13 +14,13 @@
 Summary:	Hardware identification and configuration data
 Summary(pl.UTF-8):	Dane do identyfikacji i konfiguracji sprzętu
 Name:		hwdata
-Version:	0.356
+Version:	0.364
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
 #Source0Download: https://github.com/vcrhonek/hwdata/releases
 Source0:	https://github.com/vcrhonek/hwdata/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	a14507fd357750120b1292c6c5a6dd1e
+# Source0-md5:	626a5fa96e02c35457fb1aa1c4b024e4
 URL:		https://github.com/vcrhonek/hwdata
 Obsoletes:	ieee-oui
 Conflicts:	Xconfigurator < 4.9.42-1
@@ -59,7 +59,11 @@ rm -rf $RPM_BUILD_ROOT
 	libdir=%{_prefix}/lib \
 	DESTDIR=$RPM_BUILD_ROOT
 
+install -d $RPM_BUILD_ROOT%{_npkgconfigdir}
+
 %{__rm} $RPM_BUILD_ROOT%{modprobe_d}/dist-blacklist.conf
+
+%{__mv} $RPM_BUILD_ROOT%{_datadir}/pkgconfig/hwdata.pc $RPM_BUILD_ROOT%{_npkgconfigdir}
 
 # disabled: some applications don't support compressed formats
 %if 0
@@ -80,3 +84,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/pci.ids*
 %{_datadir}/%{name}/pnp.ids
 %{_datadir}/%{name}/usb.ids*
+%{_npkgconfigdir}/hwdata.pc
