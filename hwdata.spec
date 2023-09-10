@@ -14,13 +14,13 @@
 Summary:	Hardware identification and configuration data
 Summary(pl.UTF-8):	Dane do identyfikacji i konfiguracji sprzętu
 Name:		hwdata
-Version:	0.370
+Version:	0.374
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
 #Source0Download: https://github.com/vcrhonek/hwdata/releases
 Source0:	https://github.com/vcrhonek/hwdata/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	e4a13490647b72459ae1bd1529ae55a2
+# Source0-md5:	4ce536c5b733ddbca1eaf318068da8d1
 URL:		https://github.com/vcrhonek/hwdata
 Obsoletes:	ieee-oui < 20131129
 Conflicts:	Xconfigurator < 4.9.42-1
@@ -55,6 +55,7 @@ fi
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	libdir=%{_prefix}/lib \
 	DESTDIR=$RPM_BUILD_ROOT
